@@ -6,7 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
-<h1>Simulation emprunt</h1>
+<h1>Simulation d'emprunt</h1>
 
 <form>
     <label for="capital">Capital</label>
@@ -31,10 +31,10 @@
 </div>
 
 <script type="text/javascript">
-    $("form").change(function(){
-        var montant = $(this).find("input[id='capital']").val();
-        var taux = $(this).find("input[id='taux']").val();
-        var duree = $(this).find("input[id='duree']").val();
+    $("form").change(function() {
+        var montant = $("#capital").val();
+        var taux = $("#taux").val();
+        var duree = $("#duree").val();
 
         if(montant>0 && taux>0 && duree>0){
             var mensualite = (montant*(taux/100/12))/(1-(Math.pow(1+(taux/100/12),-duree)));
