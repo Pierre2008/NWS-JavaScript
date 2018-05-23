@@ -41,6 +41,31 @@
         "couleur" : "rouge",
         "longueur" : 48
     };
+
+//////////////////////////////////////
+
+
+    function Voiture(modele) {
+        this.modele = modele;
+    }
+
+    var tuning = new Voiture(206);
+
+    console.log(tuning.modele);
+
+    Voiture.prototype.demarrer = function () {
+        alert("Ma " + this.modele + " fait Vroum !!!");
+
+    }
+
+    Voiture.prototype.roues = true ;
+
+    function VoitureTuning() {
+        Voiture.apply(this);
+    }
+
+    Object.getPrototypeOf(michel)
+
 </script>
 </body>
 </html>

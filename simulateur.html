@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Simulateur de crédit</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+<h1>Simulation emprunt</h1>
+
+<form>
+    <label for="capital">Capital</label>
+    <input type="number" id="capital"> €
+
+    <label for="taux">Taux</label>
+    <input type="number" id="taux"> %
+
+    <label for="duree">Durée</label>
+    <input type="number" id="duree"> mois
+</form>
+
+<hr>
+
+<div id="result">
+    <div>
+        Mensualités: <p></p>
+    </div>
+    <div>
+        Coût total: <p></p>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $("form").change(function(){
+        var montant = $(this).find("input[id='capital']").val();
+        var taux = $(this).find("input[id='taux']").val();
+        var duree = $(this).find("input[id='duree']").val();
+
+        if(montant>0 && taux>0 && duree>0){
+            var mensualite = (montant*(taux/100/12))/(1-(Math.pow(1+(taux/100/12),-duree)));
+            $("#result p:first").html(mensualite+'€');
+
+            var cout = mensualite*duree;
+            $("#result p:last").html(cout+'€');
+        }
+    });
+</script>
+
+</body>
+</html>
